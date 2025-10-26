@@ -1,1 +1,782 @@
-<a href="docs/COMPLIANCE_PRINCIPLES.pdf">Download Compliance Framework (PDF)</a>
+# photini.family Landing Page — Complete HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photini Family™ - AI-powered, privacy-first advocacy platforms to protect vulnerable children and families worldwide.">
+    <meta name="keywords" content="child protection, advocacy, AI ethics, trauma-informed design, human rights">
+    <meta name="author" content="Photini Family™">
+    <title>Photini Family™ - Protecting Children Through Ethical AI</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #70B6C8;
+            --coral: #C88270;
+            --deep-teal: #07382D;
+            --magenta: #C870B6;
+            --gold: #D4AF37;
+            --bg-light: #F5F5F5;
+            --text-dark: #1A1A1A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--deep-teal);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            font-size: 1.25rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--primary-teal);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(112, 182, 200, 0.85) 0%, rgba(7, 56, 45, 0.85) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><filter id="star"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /><feDisplacementMap in="SourceGraphic" in2="noise" scale="50" /></filter></defs><circle cx="15%" cy="10%" r="1.5" fill="%23D4AF37" opacity="0.6" filter="url(%23star)" /><circle cx="85%" cy="20%" r="1" fill="%23D4AF37" opacity="0.5" filter="url(%23star)" /><circle cx="25%" cy="80%" r="1.2" fill="%23D4AF37" opacity="0.4" filter="url(%23star)" /><circle cx="90%" cy="75%" r="1" fill="%23D4AF37" opacity="0.5" filter="url(%23star)" /></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--white);
+            border-radius: 15px;
+            animation: scroll-indicator 2s infinite;
+            opacity: 0.7;
+        }
+
+        .hero::after::after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 10px;
+            background: var(--white);
+            margin: 8px auto;
+            animation: scroll-dot 2s infinite;
+        }
+
+        @keyframes scroll-indicator {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes scroll-dot {
+            0% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(10px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: clamp(0.9rem, 2vw, 1.25rem);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero .mission {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            max-width: 600px;
+            margin: 2rem auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--coral);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--coral);
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== MISSION STATEMENT ===== */
+        .mission-section {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .mission-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        /* ===== THREE WAVES SECTION ===== */
+        .waves-section {
+            background-color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .waves-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .wave-card {
+            background: var(--white);
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wave-card:nth-child(1) {
+            border-top: 4px solid var(--primary-teal);
+        }
+
+        .wave-card:nth-child(1):hover {
+            border-color: var(--primary-teal);
+            box-shadow: 0 10px 40px rgba(112, 182, 200, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .wave-card:nth-child(2) {
+            border-top: 4px solid var(--magenta);
+        }
+
+        .wave-card:nth-child(2):hover {
+            border-color: var(--magenta);
+            box-shadow: 0 10px 40px rgba(200, 112, 182, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .wave-card:nth-child(3) {
+            border-top: 4px solid var(--coral);
+        }
+
+        .wave-card:nth-child(3):hover {
+            border-color: var(--coral);
+            box-shadow: 0 10px 40px rgba(200, 130, 112, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .wave-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .wave-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .wave-card .subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .wave-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .wave-card li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .wave-card li::before {
+            content: "✓ ";
+            color: var(--primary-teal);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .wave-card:nth-child(2) li::before {
+            color: var(--magenta);
+        }
+
+        .wave-card:nth-child(3) li::before {
+            color: var(--coral);
+        }
+
+        .wave-link {
+            display: inline-block;
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .wave-card:nth-child(2) .wave-link {
+            color: var(--magenta);
+        }
+
+        .wave-card:nth-child(3) .wave-link {
+            color: var(--coral);
+        }
+
+        .wave-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* ===== HIGHLIGHTS SECTION ===== */
+        .highlights-section {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .highlights-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlights-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .highlights-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-teal), var(--coral));
+            margin: 1rem auto 2rem;
+        }
+
+        .highlight-item {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            text-align: left;
+            border-left: 4px solid var(--primary-teal);
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .highlight-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--deep-teal);
+        }
+
+        .highlight-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: var(--coral);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .cta-button {
+            background-color: var(--deep-teal);
+            border-color: var(--deep-teal);
+        }
+
+        .cta-buttons .cta-button:nth-child(2) {
+            background-color: var(--primary-teal);
+            border-color: var(--primary-teal);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--deep-teal);
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-header .logo {
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-teal);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--deep-teal);
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 7rem 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .waves-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .mission-section,
+            .waves-section,
+            .highlights-section,
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero .mission {
+                font-size: 1rem;
+                margin: 1.5rem auto;
+            }
+
+            .highlights-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <span>🌍</span>
+            <div>PHOTINI FAMILY™</div>
+        </div>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#advocacy">Advocacy</a>
+            <a href="#tech">Tech</a>
+            <a href="#rhea">Rhea</a>
+            <a href="#collaborate">Collaborate</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>PHOTINI FAMILY™</h1>
+        <p class="tagline">AI-POWERED · PRIVACY-FIRST · TRAUMA-INFORMED</p>
+        <p class="mission">
+            ✨ Stories that heal | Technology that protects | Networks that unite ✨
+        </p>
+        <a href="#collaborate" class="cta-button">Explore Our Mission →</a>
+    </section>
+
+    <!-- MISSION STATEMENT -->
+    <section class="mission-section">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="font-weight: 600; font-size: 1.3rem; margin-bottom: 1.5rem;">
+                Building technology and advocacy that honor every child's dignity, every family's right to stay together, and every human's need for healing.
+            </p>
+            <p>
+                We're powered by Perplexity AI, ethics-first design, and real-world impact—because protecting children isn't optional. One person CAN build a billion-dollar company with AI—but only if it saves lives, not just generates profit.
+            </p>
+        </div>
+    </section>
+
+    <!-- THREE WAVES SECTION -->
+    <section class="waves-section" id="advocacy">
+        <div class="waves-container">
+            <!-- PHOTINI™ -->
+            <div class="wave-card">
+                <div class="wave-icon">🛡️</div>
+                <h3>PHOTINI™</h3>
+                <p class="subtitle">ADVOCACY & TECH</p>
+                <ul>
+                    <li>Go-Driver Platform</li>
+                    <li>Photini Advocacy</li>
+                    <li>Case Documentation</li>
+                    <li>Research & Analysis</li>
+                </ul>
+                <a href="#" class="wave-link">Learn More →</a>
+            </div>
+
+            <!-- RHEA™ -->
+            <div class="wave-card">
+                <div class="wave-icon">🌿</div>
+                <h3>RHEA™</h3>
+                <p class="subtitle">HEALING & WISDOM</p>
+                <ul>
+                    <li>Cosmic Bear Adventure</li>
+                    <li>Trauma-Informed Resources</li>
+                    <li>Rhea Network Community</li>
+                    <li>Healing Pathways</li>
+                </ul>
+                <a href="#" class="wave-link">Learn More →</a>
+            </div>
+
+            <!-- NEKTARIOS™ -->
+            <div class="wave-card">
+                <div class="wave-icon">⚖️</div>
+                <h3>NEKTARIOS™</h3>
+                <p class="subtitle">AI ETHICS & GOVERNANCE</p>
+                <ul>
+                    <li>Compliance Framework</li>
+                    <li>ISO Standards & Audits</li>
+                    <li>Open-Source Ethics</li>
+                    <li>Legal Blueprints</li>
+                </ul>
+                <a href="#" class="wave-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS SECTION -->
+    <section class="highlights-section" id="tech">
+        <div class="highlights-container">
+            <h2>What We're Building Right Now</h2>
+            <div class="highlights-divider"></div>
+
+            <div class="highlight-item">
+                <h4>🎯 Go-Driver MVP Development (Q2 2026)</h4>
+                <p>AI-powered advocacy toolkit with privacy-first architecture, modular design, and integrated compliance monitoring.</p>
+            </div>
+
+            <div class="highlight-item">
+                <h4>📚 Photini Advocacy Issue #1: Nordic Child Protection</h4>
+                <p>Research-backed analysis of systemic failures in child protection across Nordic countries, published with actionable frameworks.</p>
+            </div>
+
+            <div class="highlight-item">
+                <h4>🐻 Cosmic Bear Adventure: Trauma Recovery for Kids</h4>
+                <p>Children's book series launching in 3 languages, designed to help kids process separation and build resilience.</p>
+            </div>
+
+            <div class="highlight-item">
+                <h4>🏛️ Seeking Pilot Partners: NGOs & Human Rights Organizations</h4>
+                <p>Join us in building ethical AI for advocacy. We're looking for organizations ready to co-create solutions that save lives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="collaborate">
+        <h2>Ready to Build Technology That Protects—Not Exploits?</h2>
+        <div class="cta-buttons">
+            <a href="mailto:hello@photini.family" class="cta-button">Collaborate With Us</a>
+            <a href="#" class="cta-button">Support Our Mission</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-header">
+                <div class="logo">
+                    <span>🌍</span>
+                    <div>PHOTINI FAMILY™</div>
+                </div>
+                <p>Trion Navarchon Hub, Patras, Greece · Powered by Ethical AI & Community</p>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#advocacy">Advocacy</a></li>
+                        <li><a href="#tech">Tech</a></li>
+                        <li><a href="#rhea">Rhea</a></li>
+                        <li><a href="#collaborate">Collaborate</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Ethics Framework</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/company/photini-family" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/Hidikoo" target="_blank">GitHub</a></li>
+                        <li><a href="mailto:hello@photini.family">hello@photini.family</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Photini Family™ · All Rights Reserved</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Protecting Children. Advancing Rights. Building Hope.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
