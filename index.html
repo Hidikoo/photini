@@ -7,7 +7,8 @@
     <meta name="keywords" content="child protection, advocacy, AI ethics, trauma-informed design, human rights">
     <meta name="author" content="Photini Family™">
     <title>Photini Family™ - Protecting Children Through Ethical AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400&display=swap&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&family=Lato:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet"/>
+
     
     <style>
         * {
@@ -29,17 +30,22 @@
             --midnight: #02323D;
             --header-gradient: linear-gradient(120deg, var(--primary-teal) 0%, var(--deep-teal) 87%);
             --focus-shadow: 0 0 0 3px var(--gold);
+            --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-header: 'Montserrat', 'Inter', sans-serif;
+            --font-accent: 'Lato', 'Inter', sans-serif;
+           --font-light: 'Roboto', 'Inter', sans-serif;
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: var(--font-main);
+            font-weight: 400;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--white);
         }
 
         /* ===== HEADER (Global) ===== */
-        .site-header { position: fixed; top: 0; width: 100%; background-color: var(--header-gradient); transition: box-shadow 0.2s, height 0.35s; z-index: 1000; box-shadow: 0 2px 18px rgba(0,0,0,0.08); height: 100px; } 
+        .site-header { position: fixed; top: 0; width: 100%; background: var(--header-gradient); transition: box-shadow 0.2s, height 0.35s; z-index: 1000; box-shadow: 0 2px 18px rgba(0,0,0,0.08); height: 100px; } 
         .header-content { display: flex; align-items: center; justify-content: space-between; max-width: 1250px; width: 100%; margin: 0 auto; height: 100%; padding: 1rem 2rem; transition: padding 0.35s; }
         .header-left .photini-name { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 8px; color: var(--white); transition: font-size 0.35s, letter-spacing 0.35s; }
         .logo-center { position: relative; flex: 1; display: flex; justify-content: center; align-items: center; }
@@ -93,7 +99,7 @@
        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
        .hamburger.active span:nth-child(2) { opacity: 0; transform: scale(0.3); }
        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        
+        } 
         /* ===== HERO SECTION ===== */
         .hero {
             height: 100vh;
@@ -101,9 +107,9 @@
                         url('docs/images/Photini_Website_Pic23_1920x1080.jpg');
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 6rem 2rem 2rem; position: relative; overflow: hidden;
         }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 4.5rem); margin-bottom: 1rem; font-weight: 700; letter-spacing: 4px; animation: fadeInUp 0.8s ease-out; }
-        .hero .tagline { font-family: 'Lato', sans-serif; font-size: clamp(0.9rem, 2vw, 1.25rem); margin-bottom: 0.5rem; font-weight: 500; letter-spacing: 2px; animation: fadeInUp 0.8s ease-out 0.1s both; }
-        .hero .mission { font-size: clamp(1rem, 2.5vw, 1.4rem); max-width: 600px; margin: 2rem auto; line-height: 1.8; animation: fadeInUp 0.8s ease-out 0.2s both; }
+        .hero h1 { font-family: var(--font-header); font-size: clamp(2rem, 5vw, 4.5rem); margin-bottom: 1rem; font-weight: 700; letter-spacing: 4px; animation: fadeInUp 0.8s ease-out; }
+        .hero .tagline { font-family: var(--font-accent); font-size: clamp(0.9rem, 2vw, 1.25rem); margin-bottom: 0.5rem; font-weight: 500; letter-spacing: 2px; animation: fadeInUp 0.8s ease-out 0.1s both; }
+        .hero .mission { var(--font-accent); font-size: clamp(1rem, 2.5vw, 1.4rem); max-width: 600px; margin: 2rem auto; line-height: 1.8; animation: fadeInUp 0.8s ease-out 0.2s both; }
         .cta-button { display: inline-block; padding: 1rem 2.5rem; background-color: var(--coral); color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 1.5rem; transition: all 0.3s ease; border: 2px solid var(--coral); cursor: pointer; animation: fadeInUp 0.8s ease-out 0.3s both; }
         .cta-button:hover { background-color: transparent; border-color: var(--white); color: var(--white); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         @keyframes fadeInUp {
@@ -131,7 +137,7 @@
         .wave-card:nth-child(3) { border-top: 4px solid var(--coral); }
         .wave-card:nth-child(3):hover { border-color: var(--coral); box-shadow: 0 10px 40px rgba(200, 130, 112, 0.2); transform: translateY(-5px); }
         .wave-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .wave-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .wave-card h3 { font-family: var(--font-header); font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700; }
         .wave-card .subtitle { font-size: 0.95rem; color: #666; margin-bottom: 1.5rem; font-weight: 500; }
         .wave-card ul { list-style: none; text-align: left; margin-bottom: 1.5rem; }
         .wave-card li { padding: 0.5rem 0; font-size: 0.95rem; color: #555; }
@@ -146,7 +152,7 @@
         /* ===== HIGHLIGHTS SECTION ===== */
         .highlights-section { background-color: var(--bg-light); padding: 5rem 2rem; text-align: center; }
         .highlights-container { max-width: 900px; margin: 0 auto; }
-        .highlights-section h2 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+        .highlights-section h2 { font-family: var(--font-header); font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-dark); }
         .highlights-divider { width: 80px; height: 3px; background: linear-gradient(to right, var(--primary-teal), var(--coral)); margin: 1rem auto 2rem; }
         .highlight-item { margin: 2rem 0; padding: 1.5rem; text-align: left; border-left: 4px solid var(--primary-teal); background: var(--white); border-radius: 8px; }
         .highlight-item h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--deep-teal);}
@@ -154,7 +160,7 @@
 
         /* ===== CTA SECTION ===== */
         .cta-section { background-color: var(--coral); padding: 4rem 2rem; text-align: center; color: var(--white); }
-        .cta-section h2 { font-size: 2rem; margin-bottom: 2rem; font-weight: 700; }
+        .cta-section h2 { font-family: var(--font-header); font-size: 2rem; margin-bottom: 2rem; font-weight: 700; }
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .cta-buttons .cta-button { background-color: var(--deep-teal); border-color: var(--deep-teal); }
         .cta-buttons .cta-button:nth-child(2) { background-color: var(--primary-teal); border-color: var(--primary-teal); }
@@ -181,7 +187,7 @@
             .hamburger { display: flex; }
             header { padding: 1rem; }
             .hero { padding: 7rem 1rem 2rem; }
-            .hero h1 { font-size: 2rem; letter-spacing: 2px; }
+            .hero h1 { font-family: var(--font-header); font-size: 2rem; letter-spacing: 2px; }
             .waves-container { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; align-items: center; }
             .cta-buttons .cta-button { width: 100%; max-width: 300px; }
@@ -192,10 +198,10 @@
             footer { padding: 2rem 1rem; }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.5rem; }
-            .hero .mission { font-size: 1rem; margin: 1.5rem auto; }
-            .highlights-section h2 { font-size: 1.5rem; }
-            .cta-section h2 { font-size: 1.5rem; }
+            .hero h1 { font-family: var(--font-header); font-size: 1.5rem; }
+            .hero .mission { var(--font-accent); font-size: 1rem; margin: 1.5rem auto; }
+            .highlights-section h2 { font-family: var(--font-header); font-size: 1.5rem; }
+            .cta-section h2 { font-family: var(--font-header); font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -414,10 +420,9 @@
     <script>
         // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-links'); //(only for main nav others nav a)
+        const navMenu = document.getElementById('.nav-links'); //(only for main nav others nav a)
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -500,6 +505,7 @@
     </script>
 </body>
 </html>
+
 
 
 
